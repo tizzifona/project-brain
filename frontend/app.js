@@ -170,7 +170,7 @@ function renderPMOverview(overview) {
 function renderCriticalSignals(signals) {
     const container = document.getElementById('critical-signals');
     if (!signals || signals.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No critical signals</p>';
+        container.innerHTML = '<p class="empty-state">No critical signals</p>';
         return;
     }
     
@@ -203,7 +203,7 @@ function renderChannelBreakdown(breakdown) {
 function renderRecommendations(recommendations) {
     const container = document.getElementById('recommendations');
     if (!recommendations || recommendations.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No recommendations</p>';
+        container.innerHTML = '<p class="empty-state">No recommendations</p>';
         return;
     }
     
@@ -215,14 +215,13 @@ function renderRecommendations(recommendations) {
 function renderSignalFeed(signals) {
     const container = document.getElementById('signal-feed');
     
-    // Filter signals
     let filtered = signals;
     if (currentFilter !== 'all') {
         filtered = signals.filter(s => s.channel === currentFilter);
     }
     
     if (filtered.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 2rem;">No signals found</p>';
+        container.innerHTML = '<p class="empty-state" style="text-align:center;padding:2rem;">No signals found</p>';
         return;
     }
     
@@ -232,17 +231,17 @@ function renderSignalFeed(signals) {
                 <div class="signal-meta">
                     <span class="channel-badge">${signal.channel}</span>
                     <span class="signal-time">${formatDate(signal.timestamp)}</span>
-                    <span style="color: var(--text-secondary); font-size: 0.85rem;">${signal.author}</span>
+                    <span class="signal-author">${signal.author}</span>
                 </div>
                 <span class="urgency-badge ${signal.urgency}">${signal.urgency}</span>
             </div>
             <div class="signal-content">${signal.content}</div>
             <div class="signal-interpretation">
-                <strong>🤖 AI Interpretation:</strong> ${signal.interpretation}
+                <strong>AI interpretation:</strong> ${signal.interpretation}
             </div>
             ${signal.recommendations && signal.recommendations.length > 0 ? `
                 <div class="signal-recommendations">
-                    <strong>Recommendations:</strong>
+                    <strong>Recommendations</strong>
                     <ul>
                         ${signal.recommendations.map(rec => `<li>${rec}</li>`).join('')}
                     </ul>
@@ -274,7 +273,7 @@ function renderClientProgress(progress) {
             <span class="stat-value">${progress.overallCompletion}%</span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill" style="width: ${progress.overallCompletion}%">
+            <div class="progress-fill progress-fill-labeled" style="width: ${progress.overallCompletion}%">
                 ${progress.overallCompletion}%
             </div>
         </div>
@@ -310,7 +309,7 @@ function renderClientBudget(budget) {
             </span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill" style="width: ${percentUsed}%">
+            <div class="progress-fill progress-fill-labeled" style="width: ${percentUsed}%">
                 ${Math.round(percentUsed)}% used
             </div>
         </div>
@@ -351,7 +350,7 @@ function renderClientTimeline(timeline) {
             </div>
         ` : ''}
         <div class="progress-bar">
-            <div class="progress-fill" style="width: ${percentComplete}%">
+            <div class="progress-fill progress-fill-labeled" style="width: ${percentComplete}%">
                 Week ${timeline.elapsed} of ${timeline.currentEstimate}
             </div>
         </div>
@@ -369,19 +368,15 @@ function renderClientTimeline(timeline) {
 function renderClientDecisions(decisions) {
     const container = document.getElementById('client-decisions');
     if (!decisions || decisions.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No recent decisions</p>';
+        container.innerHTML = '<p class="empty-state">No recent decisions</p>';
         return;
     }
     
     container.innerHTML = decisions.slice(0, 5).map(decision => `
         <div class="decision-item">
-            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem;">
-                ${formatDate(decision.date)}
-            </div>
-            <div style="margin-bottom: 0.5rem;">${decision.decision}</div>
-            <div style="color: var(--primary); font-size: 0.9rem;">
-                <strong>Impact:</strong> ${decision.impact}
-            </div>
+            <div class="item-meta">${formatDate(decision.date)}</div>
+            <div>${decision.decision}</div>
+            <div class="item-highlight"><strong>Impact:</strong> ${decision.impact}</div>
         </div>
     `).join('');
 }
@@ -389,19 +384,15 @@ function renderClientDecisions(decisions) {
 function renderPendingDecisions(pending) {
     const container = document.getElementById('pending-decisions');
     if (!pending || pending.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No pending decisions</p>';
+        container.innerHTML = '<p class="empty-state">No pending decisions</p>';
         return;
     }
     
     container.innerHTML = pending.map(item => `
         <div class="pending-item">
-            <div style="margin-bottom: 0.5rem;">${item.description}</div>
-            <div style="color: var(--text-secondary); font-size: 0.85rem;">
-                Via ${item.channel} • ${formatDate(item.date)}
-            </div>
-            <div style="color: var(--warning); font-size: 0.9rem; margin-top: 0.5rem;">
-                <strong>Estimated Impact:</strong> ${item.estimatedImpact}
-            </div>
+            <div>${item.description}</div>
+            <div class="item-meta">Via ${item.channel} · ${formatDate(item.date)}</div>
+            <div class="item-warning"><strong>Estimated impact:</strong> ${item.estimatedImpact}</div>
         </div>
     `).join('');
 }
@@ -409,22 +400,16 @@ function renderPendingDecisions(pending) {
 function renderClientRisks(risks) {
     const container = document.getElementById('client-risks');
     if (!risks || risks.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No active risks</p>';
+        container.innerHTML = '<p class="empty-state">No active risks</p>';
         return;
     }
     
     container.innerHTML = risks.map(risk => `
         <div class="risk-item">
-            <div style="font-weight: 600; margin-bottom: 0.5rem; color: var(--warning);">
-                ${risk.type} Risk
-            </div>
-            <div style="margin-bottom: 0.5rem;">${risk.description}</div>
-            <div style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">
-                <strong>Impact:</strong> ${risk.impact}
-            </div>
-            <div style="color: var(--success); font-size: 0.9rem;">
-                <strong>Mitigation:</strong> ${risk.mitigation}
-            </div>
+            <div class="item-warning">${risk.type} risk</div>
+            <div>${risk.description}</div>
+            <div class="item-meta"><strong>Impact:</strong> ${risk.impact}</div>
+            <div class="item-highlight"><strong>Mitigation:</strong> ${risk.mitigation}</div>
         </div>
     `).join('');
 }
@@ -432,14 +417,13 @@ function renderClientRisks(risks) {
 // Scope Change Scenario
 async function runScopeChangeScenario() {
     const resultsContainer = document.getElementById('scenario-results');
-    resultsContainer.style.display = 'block';
-    resultsContainer.innerHTML = '<p style="text-align: center;">🔄 Calculating impact...</p>';
+    resultsContainer.hidden = false;
+    resultsContainer.innerHTML = '<p class="empty-state" style="text-align:center;">Calculating impact…</p>';
     
-    // Simulate scope change: "Add exchange rate history chart"
     const scopeChange = {
         type: 'feature-addition',
         description: 'Add historical exchange rate trends chart to currency selector',
-        estimatedEffort: 13 // story points
+        estimatedEffort: 13
     };
     
     const consequences = await postAPI('/api/scenario/scope-change', { change: scopeChange });
@@ -447,17 +431,18 @@ async function runScopeChangeScenario() {
     if (consequences) {
         renderScenarioResults(consequences);
     } else {
-        resultsContainer.innerHTML = '<p style="color: var(--danger);">Error calculating scenario</p>';
+        resultsContainer.innerHTML = '<p class="empty-state" style="color:var(--bh-danger);">Error calculating scenario</p>';
     }
 }
 
 function renderScenarioResults(consequences) {
     const container = document.getElementById('scenario-results');
+    container.hidden = false;
     const { immediate, cascading, mitigation } = consequences;
     
     container.innerHTML = `
         <div class="scenario-section">
-            <h4>📊 Immediate Impact</h4>
+            <h4>Immediate impact</h4>
             <div class="comparison-grid">
                 <div class="comparison-box">
                     <h5>Budget</h5>
@@ -466,22 +451,22 @@ function renderScenarioResults(consequences) {
                         <span class="stat-value negative">+$${immediate.budget.increase.toLocaleString()}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label">New Total</span>
+                        <span class="stat-label">New total</span>
                         <span class="stat-value">$${immediate.budget.newTotal.toLocaleString()}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label">% Increase</span>
+                        <span class="stat-label">% increase</span>
                         <span class="stat-value">${immediate.budget.percentageIncrease.toFixed(1)}%</span>
                     </div>
                 </div>
                 <div class="comparison-box">
                     <h5>Timeline</h5>
                     <div class="stat-row">
-                        <span class="stat-label">Weeks Added</span>
+                        <span class="stat-label">Weeks added</span>
                         <span class="stat-value negative">+${immediate.timeline.weeksAdded}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label">New Estimate</span>
+                        <span class="stat-label">New estimate</span>
                         <span class="stat-value">${immediate.timeline.newEstimate} weeks</span>
                     </div>
                     <div class="stat-row">
@@ -490,62 +475,50 @@ function renderScenarioResults(consequences) {
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 1rem;">
-                <strong>Sprint Impact:</strong> ${immediate.sprint.pointsAdded} story points across ${immediate.sprint.sprintsRequired} sprint(s)
-            </div>
+            <p class="item-meta" style="margin-top:1rem;">
+                <strong>Sprint impact:</strong> ${immediate.sprint.pointsAdded} story points across ${immediate.sprint.sprintsRequired} sprint(s)
+            </p>
         </div>
 
         ${cascading.riskRipple.length > 0 ? `
             <div class="scenario-section">
-                <h4>⚠️ Risk Assessment</h4>
+                <h4>Risk assessment</h4>
                 ${cascading.riskRipple.map(risk => `
                     <div class="risk-item">
-                        <div style="font-weight: 600; color: var(--${risk.level.toLowerCase()});">
-                            ${risk.type} - ${risk.level} Risk
-                        </div>
-                        <div style="margin-top: 0.5rem;">${risk.description}</div>
+                        <div class="item-danger">${risk.type} — ${risk.level} risk</div>
+                        <div>${risk.description}</div>
                     </div>
                 `).join('')}
             </div>
         ` : ''}
 
         <div class="scenario-section">
-            <h4>💡 Mitigation Options</h4>
-            ${mitigation.options.map((option, idx) => `
-                <div class="comparison-box" style="margin-bottom: 1rem; ${option.recommendation ? 'border: 2px solid var(--primary);' : ''}">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <h5 style="margin: 0; font-size: 1rem;">${option.name}</h5>
+            <h4>Mitigation options</h4>
+            ${mitigation.options.map(option => `
+                <div class="comparison-box ${option.recommendation ? 'recommended' : ''}" style="margin-bottom:1rem;">
+                    <div class="option-header">
+                        <h5>${option.name}</h5>
                         ${option.recommendation ? '<span class="health-badge healthy">Recommended</span>' : ''}
                     </div>
-                    <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">${option.description}</p>
+                    <p class="item-meta">${option.description}</p>
                     <div class="stat-row">
-                        <span class="stat-label">Budget Impact</span>
+                        <span class="stat-label">Budget impact</span>
                         <span class="stat-value">${option.budgetImpact > 0 ? '+' : ''}$${option.budgetImpact.toLocaleString()}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label">Timeline Impact</span>
+                        <span class="stat-label">Timeline impact</span>
                         <span class="stat-value">${option.timelineImpact > 0 ? '+' : ''}${option.timelineImpact} weeks</span>
                     </div>
-                    <div style="margin-top: 0.75rem;">
-                        <strong style="color: var(--success);">Pros:</strong>
-                        <ul style="margin: 0.25rem 0; padding-left: 1.5rem;">
-                            ${option.pros.map(pro => `<li>${pro}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div style="margin-top: 0.5rem;">
-                        <strong style="color: var(--danger);">Cons:</strong>
-                        <ul style="margin: 0.25rem 0; padding-left: 1.5rem;">
-                            ${option.cons.map(con => `<li>${con}</li>`).join('')}
-                        </ul>
-                    </div>
+                    <div class="item-highlight"><strong>Pros:</strong> ${option.pros.join(' · ')}</div>
+                    <div class="item-warning" style="margin-top:0.35rem;"><strong>Cons:</strong> ${option.cons.join(' · ')}</div>
                 </div>
             `).join('')}
         </div>
 
         <div class="scenario-section">
-            <h4>✅ Recommendations</h4>
+            <h4>Recommendations</h4>
             <ul class="rec-list">
-                ${mitigation.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                ${mitigation.recommendations.map(rec => `<li>${rec.replace(/^[⚠️💰📅📋🗣️]\s*/, '')}</li>`).join('')}
             </ul>
         </div>
     `;
@@ -577,7 +550,7 @@ function renderSquadSprint(sprint) {
             <span class="health-badge ${getHealthClass(sprint.health)}">${sprint.health}</span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill" style="width: ${completion}%">
+            <div class="progress-fill progress-fill-labeled" style="width: ${completion}%">
                 ${sprint.completed} of ${sprint.committed} pts
             </div>
         </div>
@@ -595,19 +568,15 @@ function renderSquadSprint(sprint) {
 function renderSquadBlockers(blockers) {
     const container = document.getElementById('squad-blockers');
     if (!blockers || blockers.length === 0) {
-        container.innerHTML = '<p style="color: var(--success);">✅ No active blockers</p>';
+        container.innerHTML = '<p class="empty-state">No active blockers</p>';
         return;
     }
     
     container.innerHTML = blockers.map(blocker => `
-        <div class="risk-item">
-            <div style="font-weight: 600; color: var(--danger); margin-bottom: 0.5rem;">
-                ${blocker.severity.toUpperCase()} PRIORITY
-            </div>
+        <div class="blocker-item">
+            <div class="item-danger">${blocker.severity} priority</div>
             <div>${blocker.description}</div>
-            <div style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem;">
-                Owner: ${blocker.owner}
-            </div>
+            <div class="item-meta">Owner: ${blocker.owner}</div>
         </div>
     `).join('');
 }
@@ -615,18 +584,18 @@ function renderSquadBlockers(blockers) {
 function renderSquadContext(contexts) {
     const container = document.getElementById('squad-context');
     if (!contexts || contexts.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No updates from other channels</p>';
+        container.innerHTML = '<p class="empty-state">No updates from other channels</p>';
         return;
     }
     
     container.innerHTML = contexts.map(ctx => `
         <div class="decision-item">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <div class="signal-header">
                 <span class="channel-badge">${ctx.channel}</span>
-                <span style="color: var(--text-secondary); font-size: 0.85rem;">${formatDate(ctx.date)}</span>
+                <span class="signal-time">${formatDate(ctx.date)}</span>
             </div>
             <div>${ctx.summary}</div>
-            ${ctx.actionRequired ? '<div style="color: var(--warning); margin-top: 0.5rem; font-weight: 600;">⚠️ Action required</div>' : ''}
+            ${ctx.actionRequired ? '<div class="item-warning">Action required</div>' : ''}
         </div>
     `).join('');
 }
@@ -634,7 +603,7 @@ function renderSquadContext(contexts) {
 function renderSquadUpcoming(upcoming) {
     const container = document.getElementById('squad-upcoming');
     if (!upcoming || upcoming.length === 0) {
-        container.innerHTML = '<p style="color: var(--text-secondary);">No upcoming work</p>';
+        container.innerHTML = '<p class="empty-state">No upcoming work</p>';
         return;
     }
     
@@ -643,9 +612,7 @@ function renderSquadUpcoming(upcoming) {
             <span class="stat-label">${work.title}</span>
             <span class="stat-value">${work.estimatedEffort}</span>
         </div>
-        <div style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.75rem;">
-            Source: ${work.source}
-        </div>
+        <div class="item-meta">Source: ${work.source}</div>
     `).join('');
 }
 
