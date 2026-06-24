@@ -1,0 +1,15 @@
+name: Project Brain
+description: AI-powered project intelligence hub that synthesises commercial signals across channels
+version: 0.1.0
+
+tab:
+  intelligence:
+    src: agent/main.ts
+    importmap: importmap.json
+    ttl: 300
+    config:
+      dataPath: data/synthetic-dataset.json
+      updateInterval: 5000
+
+frontend:
+  entry: frontend/index.html

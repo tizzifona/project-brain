@@ -1,0 +1,13 @@
+{
+  "imports": {
+    "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
+    "std/": "https://deno.land/std@0.208.0/"
+  },
+  "tasks": {
+    "dev": "deno run --allow-net --allow-read agent/main.ts",
+    "start": "deno run --allow-net --allow-read agent/main.ts"
+  },
+  "compilerOptions": {
+    "lib": ["deno.window", "dom"]
+  }
+}
