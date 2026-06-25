@@ -30,42 +30,42 @@
         <main class="main-content">
             <div id="pm-view" class="view active">
                 <section class="hero">
-                    <p class="eyebrow">Pilot demo · Open Value Platform</p>
-                    <h1>Cross-channel project intelligence</h1>
-                    <p class="hero-lead">Every signal from Slack, email, calls, Notion, Trello and Figma — synthesised into one live picture with AI interpretation.</p>
+                    <p class="eyebrow">Pilot demo</p>
+                    <h1>Cross-channel intelligence</h1>
+                    <p class="hero-lead">Every signal from Slack, email, calls, Notion, Trello and Figma—synthesised into one live picture with AI interpretation</p>
                 </section>
 
                 <div class="dashboard-grid">
                     <div class="card card-accent">
-                        <div class="card-label">Overview</div>
-                        <h3>Project status</h3>
-                        <div id="pm-overview" class="overview-content">Loading...</div>
+                        <span class="card-label">Overview</span>
+                        <h3>Project health</h3>
+                        <div id="pm-overview">Loading...</div>
                     </div>
 
                     <div class="card card-alert">
-                        <div class="card-label">Priority</div>
+                        <span class="card-label">Priority</span>
                         <h3>Critical signals</h3>
-                        <div id="critical-signals" class="signals-list">Loading...</div>
+                        <div id="critical-signals">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Channels</div>
-                        <h3>Activity breakdown</h3>
-                        <div id="channel-breakdown" class="channel-stats">Loading...</div>
+                        <span class="card-label">Channels</span>
+                        <h3>Activity</h3>
+                        <div id="channel-breakdown">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Intelligence</div>
+                        <span class="card-label">AI insights</span>
                         <h3>Recommendations</h3>
-                        <div id="recommendations" class="rec-list">Loading...</div>
+                        <div id="recommendations">Loading...</div>
                     </div>
                 </div>
 
                 <div class="card signal-feed">
                     <div class="feed-header">
                         <div>
-                            <div class="card-label">Live feed</div>
-                            <h3>Cross-channel signals</h3>
+                            <span class="card-label">Live feed</span>
+                            <h3>All signals</h3>
                         </div>
                         <div class="feed-filters">
                             <button class="filter-btn active" data-filter="all">All</button>
@@ -82,94 +82,94 @@
             </div>
 
             <div id="client-view" class="view">
-                <section class="hero hero-client">
+                <section class="hero">
                     <p class="eyebrow">Client view</p>
-                    <h1>Progress, budget & decision impact</h1>
-                    <p class="hero-lead">A clear picture for stakeholders — without internal noise. See the consequence of any decision before you confirm it.</p>
+                    <h1>Clear picture, smart decisions</h1>
+                    <p class="hero-lead">See progress, budget and timeline—without internal noise. Understand the impact of any decision before confirming it</p>
                 </section>
 
                 <div class="client-grid">
                     <div class="card">
-                        <div class="card-label">Delivery</div>
-                        <h3>Project progress</h3>
-                        <div id="client-progress" class="progress-content">Loading...</div>
+                        <span class="card-label">Delivery</span>
+                        <h3>Progress</h3>
+                        <div id="client-progress">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Finance</div>
-                        <h3>Budget overview</h3>
-                        <div id="client-budget" class="budget-content">Loading...</div>
+                        <span class="card-label">Finance</span>
+                        <h3>Budget</h3>
+                        <div id="client-budget">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Schedule</div>
+                        <span class="card-label">Schedule</span>
                         <h3>Timeline</h3>
-                        <div id="client-timeline" class="timeline-content">Loading...</div>
+                        <div id="client-timeline">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Decisions</div>
-                        <h3>Recent confirmations</h3>
-                        <div id="client-decisions" class="decisions-content">Loading...</div>
+                        <span class="card-label">Recent</span>
+                        <h3>Decisions</h3>
+                        <div id="client-decisions">Loading...</div>
                     </div>
 
                     <div class="card card-alert">
-                        <div class="card-label">Action needed</div>
-                        <h3>Pending decisions</h3>
-                        <div id="pending-decisions" class="pending-content">Loading...</div>
+                        <span class="card-label">Action needed</span>
+                        <h3>Pending</h3>
+                        <div id="pending-decisions">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Risk</div>
-                        <h3>Risks & mitigation</h3>
-                        <div id="client-risks" class="risks-content">Loading...</div>
+                        <span class="card-label">Risk</span>
+                        <h3>Mitigation</h3>
+                        <div id="client-risks">Loading...</div>
                     </div>
                 </div>
 
                 <div class="card scenario-demo">
                     <div class="scenario-intro">
                         <div>
-                            <div class="card-label">Demo scenario</div>
+                            <span class="card-label">Demo</span>
                             <h3>Decision impact preview</h3>
-                            <p class="demo-description">See how a scope change ripples through budget, timeline and sprint capacity — before the client confirms.</p>
+                            <p class="demo-description">See how a scope change ripples through budget, timeline and capacity—before confirming</p>
                         </div>
-                        <button id="run-scenario" class="btn-primary">Run scope change scenario</button>
+                        <button id="run-scenario" class="btn-primary">Run scenario</button>
                     </div>
                     <div id="scenario-results" class="scenario-content" hidden>Loading...</div>
                 </div>
             </div>
 
             <div id="squad-view" class="view">
-                <section class="hero hero-squad">
+                <section class="hero">
                     <p class="eyebrow">Squad view</p>
-                    <h1>Sprint health & hidden context</h1>
-                    <p class="hero-lead">Blockers, velocity and important updates from channels the team isn't part of.</p>
+                    <h1>Sprint health & context</h1>
+                    <p class="hero-lead">Blockers, velocity and important updates from channels the team isn't part of</p>
                 </section>
 
                 <div class="squad-grid">
                     <div class="card card-accent">
-                        <div class="card-label">Sprint</div>
+                        <span class="card-label">Sprint</span>
                         <h3>Current sprint</h3>
-                        <div id="squad-sprint" class="sprint-content">Loading...</div>
+                        <div id="squad-sprint">Loading...</div>
                     </div>
 
                     <div class="card card-alert">
-                        <div class="card-label">Blockers</div>
-                        <h3>Active impediments</h3>
-                        <div id="squad-blockers" class="blockers-content">Loading...</div>
+                        <span class="card-label">Blockers</span>
+                        <h3>Impediments</h3>
+                        <div id="squad-blockers">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Context</div>
-                        <h3>From other channels</h3>
-                        <p class="card-subtitle">Updates you might have missed from calls and email</p>
-                        <div id="squad-context" class="context-content">Loading...</div>
+                        <span class="card-label">Context</span>
+                        <h3>Other channels</h3>
+                        <p class="card-subtitle">Important updates from calls and email</p>
+                        <div id="squad-context">Loading...</div>
                     </div>
 
                     <div class="card">
-                        <div class="card-label">Backlog</div>
-                        <h3>Upcoming work</h3>
-                        <div id="squad-upcoming" class="upcoming-content">Loading...</div>
+                        <span class="card-label">Backlog</span>
+                        <h3>Upcoming</h3>
+                        <div id="squad-upcoming">Loading...</div>
                     </div>
                 </div>
             </div>
