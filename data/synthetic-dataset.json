@@ -1,228 +1,369 @@
 {
   "project": {
-    "id": "open-value-2024",
-    "name": "Open Value Platform",
-    "startDate": "2024-01-15",
-    "originalBudget": 85000,
-    "originalTimeline": "16 weeks",
+    "id": "open-value-2026",
+    "name": "Open Value Foundation",
+    "startDate": "2026-05-01",
+    "originalBudget": 4500,
+    "originalTimeline": "8 weeks",
     "client": "Open Value Foundation",
-    "squad": ["Alex (Dev Lead)", "Maria (Frontend)", "Jordan (Backend)", "Sam (Designer)"]
+    "squad": ["Leti (PM)", "Nadiia (Developer)", "Elena (Client)"]
   },
   "events": [
     {
-      "id": "evt_001",
-      "timestamp": "2024-06-17T09:30:00Z",
+      "id": "ov_slack_01",
+      "timestamp": "2026-06-11T12:47:00Z",
       "channel": "slack",
-      "type": "message",
-      "severity": "low",
-      "author": "Maria",
-      "content": "Login flow deployed to staging. Ready for review.",
-      "tags": ["deployment", "frontend"],
-      "impact": {
-        "budget": 0,
-        "timeline": 0,
-        "scope": "none"
-      }
+      "type": "question",
+      "severity": "medium",
+      "author": "Elena",
+      "content": "¿Oye tú sabes si el traductor web es Weglot? Estoy pensando en instalar el plug in, ¿puedo hacerlo sin problema?",
+      "tags": ["translation", "plugin", "question"],
+      "impact": { "budget": 100, "timeline": 0, "scope": "potential-addition" }
     },
     {
-      "id": "evt_002",
-      "timestamp": "2024-06-17T14:20:00Z",
+      "id": "ov_slack_02",
+      "timestamp": "2026-06-11T12:48:00Z",
+      "channel": "slack",
+      "type": "warning",
+      "severity": "high",
+      "author": "Leti",
+      "content": "No @Elena, el plugin te recomiendo que lo instale @Nadiia o se te puede desconfigurar.",
+      "tags": ["warning", "plugin", "technical"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "risk-mitigation" }
+    },
+    {
+      "id": "ov_slack_03",
+      "timestamp": "2026-06-15T11:03:00Z",
+      "channel": "slack",
+      "type": "analysis",
+      "severity": "critical",
+      "author": "Nadiia",
+      "content": "Para un sitio de este tamaño con contenido dinámico, mantener páginas duplicadas en ES/EN sería muy difícil de sostener. Recomiendo una solución multilingüe dedicada.",
+      "tags": ["analysis", "complexity", "multilingual"],
+      "impact": { "budget": 500, "timeline": 3, "scope": "major-complexity", "risk": "high" }
+    },
+    {
+      "id": "ov_slack_04",
+      "timestamp": "2026-06-25T15:43:00Z",
+      "channel": "slack",
+      "type": "blocker",
+      "severity": "critical",
+      "author": "Nadiia",
+      "content": "He instalado TranslatePress Business, pero recibimos un mensaje de licencia inválida. ¿Puedes revisar el número?",
+      "tags": ["blocker", "license", "plugin"],
+      "impact": { "budget": 100, "timeline": 1, "scope": "blocker", "risk": "high" }
+    },
+    {
+      "id": "ov_slack_05",
+      "timestamp": "2026-06-12T12:43:00Z",
+      "channel": "slack",
+      "type": "meeting-request",
+      "severity": "low",
+      "author": "Elena",
+      "content": "Hola chicas! ¿Podéis tener una reunión el lunes para ver el tema de la traducción de la web al inglés?",
+      "tags": ["meeting", "translation"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "coordination" }
+    },
+    {
+      "id": "ov_email_01",
+      "timestamp": "2026-06-10T08:30:00Z",
+      "channel": "email",
+      "type": "update",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Hi Elena, I've shared the link to the time tracker spreadsheet in Trello. Please review the logged hours for last week.",
+      "tags": ["time-tracking", "reporting"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "tracking" }
+    },
+    {
+      "id": "ov_email_02",
+      "timestamp": "2026-06-12T09:15:00Z",
+      "channel": "email",
+      "type": "update",
+      "severity": "medium",
+      "author": "Leti",
+      "content": "Weekly status: 6 maintenance tasks completed, 2 pending client approval (Novedades logic + popup slider). Translation strategy still open.",
+      "tags": ["status", "weekly-report"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "tracking" }
+    },
+    {
+      "id": "ov_email_03",
+      "timestamp": "2026-06-14T11:00:00Z",
+      "channel": "email",
+      "type": "question",
+      "severity": "medium",
+      "author": "Elena",
+      "content": "When can we realistically launch the English version? I need a date for the board meeting next month.",
+      "tags": ["translation", "timeline", "client"],
+      "impact": { "budget": 0, "timeline": 2, "scope": "planning" }
+    },
+    {
+      "id": "ov_email_04",
+      "timestamp": "2026-06-18T16:00:00Z",
+      "channel": "email",
+      "type": "scope-change",
+      "severity": "high",
+      "author": "Elena",
+      "content": "Approved: please proceed with T010 — change popup logic to slider with side animation on the same page. Budget approved for 5 hours.",
+      "tags": ["approved", "scope-change", "development"],
+      "impact": { "budget": 300, "timeline": 1, "scope": "major-change" }
+    },
+    {
+      "id": "ov_email_05",
+      "timestamp": "2026-06-20T10:30:00Z",
+      "channel": "email",
+      "type": "feedback",
+      "severity": "low",
+      "author": "Elena",
+      "content": "The home page corrections look great! Banner aligned, eye video removed, subtitles added. Thank you for the fast turnaround.",
+      "tags": ["feedback", "positive", "completed"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "acknowledged" }
+    },
+    {
+      "id": "ov_voice_01",
+      "timestamp": "2026-06-15T10:00:00Z",
       "channel": "voice",
       "type": "decision",
       "severity": "high",
-      "author": "Client (Sarah)",
-      "content": "During call: Client wants to add multi-currency support. Not in original scope. Discussed 2-3 week addition.",
-      "tags": ["scope-change", "decision-pending", "feature-request"],
-      "impact": {
-        "budget": 12000,
-        "timeline": 3,
-        "scope": "major-addition",
-        "risk": "high"
-      }
+      "author": "Elena",
+      "content": "Call with Leti + Nadiia: discussed manual translation vs plugin. Team agreed plugin approach is more maintainable long-term.",
+      "tags": ["translation", "decision-pending", "strategy"],
+      "impact": { "budget": 500, "timeline": 2, "scope": "strategy-decision", "risk": "medium" }
     },
     {
-      "id": "evt_003",
-      "timestamp": "2024-06-17T15:45:00Z",
-      "channel": "figma",
-      "type": "comment",
+      "id": "ov_voice_02",
+      "timestamp": "2026-06-17T11:00:00Z",
+      "channel": "voice",
+      "type": "meeting",
       "severity": "medium",
-      "author": "Sam",
-      "content": "Added multi-currency selector mockups to payment flow. Assuming this is approved based on call.",
-      "tags": ["design", "scope-assumption"],
-      "impact": {
-        "budget": 0,
-        "timeline": 0,
-        "scope": "implied",
-        "risk": "medium"
-      }
+      "author": "Leti",
+      "content": "Monday sync: reviewed CORRECCIONES list. Elena confirmed carousel and banner changes. Translation plugin decision deferred to next call.",
+      "tags": ["meeting", "sync", "corrections"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "coordination" }
     },
     {
-      "id": "evt_004",
-      "timestamp": "2024-06-18T10:00:00Z",
+      "id": "ov_voice_03",
+      "timestamp": "2026-06-19T14:30:00Z",
+      "channel": "voice",
+      "type": "update",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Quick call with Elena: walked through Novedades section logic. Client wants 'no events' box hidden from general tab only.",
+      "tags": ["requirements", "novedades"],
+      "impact": { "budget": 90, "timeline": 0, "scope": "clarification" }
+    },
+    {
+      "id": "ov_voice_04",
+      "timestamp": "2026-06-22T09:00:00Z",
+      "channel": "voice",
+      "type": "decision",
+      "severity": "medium",
+      "author": "Elena",
+      "content": "Call: Elena explained popup-to-slider change in detail. Wants inline content with animation, not new page navigation.",
+      "tags": ["requirements", "popup", "ux"],
+      "impact": { "budget": 300, "timeline": 1, "scope": "feature-spec" }
+    },
+    {
+      "id": "ov_voice_05",
+      "timestamp": "2026-06-25T16:00:00Z",
+      "channel": "voice",
+      "type": "blocker",
+      "severity": "high",
+      "author": "Nadiia",
+      "content": "Follow-up call: TranslatePress license resolved live. Elena provided key, plugin now active. Translation work can resume.",
+      "tags": ["blocker", "resolved", "translation"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "resolved" }
+    },
+    {
+      "id": "ov_trello_01",
+      "timestamp": "2026-06-01T09:00:00Z",
       "channel": "trello",
       "type": "task",
       "severity": "low",
-      "author": "Alex",
-      "content": "Sprint planning: Current sprint has 8 story points remaining. Multi-currency not yet added to backlog.",
-      "tags": ["sprint", "planning"],
-      "impact": {
-        "budget": 0,
-        "timeline": 0,
-        "scope": "tracking-gap"
-      }
+      "author": "Nadiia",
+      "content": "T001: HOME banner align — 15 min — Approved — Done",
+      "tags": ["task", "maintenance", "completed"],
+      "impact": { "budget": 15, "timeline": 0, "scope": "completed" }
     },
     {
-      "id": "evt_005",
-      "timestamp": "2024-06-18T16:30:00Z",
-      "channel": "email",
-      "type": "scope-change",
-      "severity": "critical",
-      "author": "Client (Sarah)",
-      "content": "Confirming multi-currency support. Need EUR, GBP, USD at minimum. Should support dynamic exchange rates via API.",
-      "tags": ["scope-change", "confirmed", "feature-request"],
-      "impact": {
-        "budget": 15000,
-        "timeline": 3.5,
-        "scope": "major-addition",
-        "risk": "high",
-        "dependencies": ["API integration", "database migration", "frontend redesign"]
-      }
+      "id": "ov_trello_02",
+      "timestamp": "2026-06-02T09:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "T002: POPUP Mentes — change video of eye for picture — 15 min — Approved — Done",
+      "tags": ["task", "maintenance", "completed"],
+      "impact": { "budget": 15, "timeline": 0, "scope": "completed" }
     },
     {
-      "id": "evt_006",
-      "timestamp": "2024-06-19T09:15:00Z",
-      "channel": "slack",
-      "type": "blocker",
+      "id": "ov_trello_03",
+      "timestamp": "2026-06-10T09:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "T003: Add Catalytic Ventures category with pre-filtered project view — 120 min — Approved — Done",
+      "tags": ["task", "development", "completed"],
+      "impact": { "budget": 90, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "ov_trello_04",
+      "timestamp": "2026-06-15T09:00:00Z",
+      "channel": "trello",
+      "type": "task",
       "severity": "high",
-      "author": "Jordan",
-      "content": "Currency API integration will require changes to payment processor contract. Need legal review before implementation.",
-      "tags": ["blocker", "legal", "technical"],
-      "impact": {
-        "budget": 3000,
-        "timeline": 1.5,
-        "scope": "dependency",
-        "risk": "high"
-      }
+      "author": "Nadiia",
+      "content": "T008: NOVEDADES — hide 'no events' box from general tabs, keep only in Events tab — 90 min — Pending Approval",
+      "tags": ["task", "pending", "maintenance"],
+      "impact": { "budget": 90, "timeline": 0, "scope": "pending" }
     },
     {
-      "id": "evt_007",
-      "timestamp": "2024-06-19T11:00:00Z",
+      "id": "ov_trello_05",
+      "timestamp": "2026-06-18T09:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "high",
+      "author": "Nadiia",
+      "content": "T010: HOME — popup to slider logic with side animation on same page — 300 min — Pending Approval",
+      "tags": ["task", "pending", "development", "complex"],
+      "impact": { "budget": 300, "timeline": 1, "scope": "major-change", "risk": "medium" }
+    },
+    {
+      "id": "ov_notion_01",
+      "timestamp": "2026-06-08T10:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "low",
+      "author": "Leti",
+      "content": "Developer log (time tracking) linked in project wiki. All tasks must be logged before client approval.",
+      "tags": ["documentation", "process"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
+    },
+    {
+      "id": "ov_notion_02",
+      "timestamp": "2026-06-14T14:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "critical",
+      "author": "Nadiia",
+      "content": "Translation options comparison: manual duplication vs TranslatePress vs WPML. Recommendation: TranslatePress Business for Elementor compatibility.",
+      "tags": ["documentation", "translation", "analysis"],
+      "impact": { "budget": 500, "timeline": 2, "scope": "strategy-doc", "risk": "high" }
+    },
+    {
+      "id": "ov_notion_03",
+      "timestamp": "2026-06-16T11:00:00Z",
       "channel": "notion",
       "type": "documentation",
       "severity": "medium",
-      "author": "PM (Blue Hope)",
-      "content": "Updated requirements doc with multi-currency spec. Original timeline now at risk. Budget increase needed.",
-      "tags": ["documentation", "risk"],
-      "impact": {
-        "budget": 0,
-        "timeline": 0,
-        "scope": "documented"
-      }
+      "author": "Leti",
+      "content": "CORRECCIONES doc updated with Elena's home page feedback: banner, carousels, subtitles, Saber más buttons.",
+      "tags": ["documentation", "requirements", "client-feedback"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
     },
     {
-      "id": "evt_008",
-      "timestamp": "2024-06-19T14:30:00Z",
-      "channel": "trello",
-      "type": "sprint-update",
-      "severity": "high",
-      "author": "Alex",
-      "content": "Added multi-currency epic to backlog. Will impact next 2 sprints. Current velocity: 12 pts/sprint, new work: 21 pts.",
-      "tags": ["sprint", "capacity"],
-      "impact": {
-        "budget": 0,
-        "timeline": 2,
-        "scope": "capacity-risk",
-        "risk": "medium"
-      }
-    },
-    {
-      "id": "evt_009",
-      "timestamp": "2024-06-20T10:00:00Z",
-      "channel": "voice",
-      "type": "decision",
+      "id": "ov_notion_04",
+      "timestamp": "2026-06-20T09:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
       "severity": "medium",
-      "author": "Client (Sarah)",
-      "content": "Call discussion: Client concerned about budget increase. Asked if we can phase delivery: USD first, then EUR/GBP later.",
-      "tags": ["negotiation", "phasing"],
-      "impact": {
-        "budget": -7000,
-        "timeline": -1,
-        "scope": "phased-delivery",
-        "risk": "low"
-      }
+      "author": "Nadiia",
+      "content": "Sprint 4 backlog updated: 6 pts maintenance done, 4 pts blocked on translation license, 3 pts pending approval.",
+      "tags": ["sprint", "backlog"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "tracking" }
     },
     {
-      "id": "evt_010",
-      "timestamp": "2024-06-20T15:00:00Z",
-      "channel": "email",
-      "type": "decision",
-      "severity": "critical",
-      "author": "Client (Sarah)",
-      "content": "Confirmed: Phased approach approved. USD support in current timeline, EUR/GBP in phase 2 (separate budget). Proceed with USD implementation.",
-      "tags": ["decision", "confirmed", "phasing"],
-      "impact": {
-        "budget": 8000,
-        "timeline": 2,
-        "scope": "phase-1-addition",
-        "risk": "medium"
-      }
+      "id": "ov_notion_05",
+      "timestamp": "2026-06-24T16:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "high",
+      "author": "Leti",
+      "content": "Risk register: multilingual delivery at risk. License blocker resolved but EN launch date still unconfirmed. Escalate to client.",
+      "tags": ["risk", "timeline", "escalation"],
+      "impact": { "budget": 0, "timeline": 2, "scope": "risk", "risk": "high" }
     },
     {
-      "id": "evt_011",
-      "timestamp": "2024-06-21T09:00:00Z",
-      "channel": "slack",
-      "type": "progress",
+      "id": "ov_figma_01",
+      "timestamp": "2026-06-03T11:00:00Z",
+      "channel": "figma",
+      "type": "feedback",
       "severity": "low",
-      "author": "Maria",
-      "content": "Started USD currency selector component. Using existing design system patterns.",
-      "tags": ["implementation", "progress"],
-      "impact": {
-        "budget": 0,
-        "timeline": 0,
-        "scope": "in-progress"
-      }
+      "author": "Elena",
+      "content": "Comment on home banner frame: 'Please align left edge with carousel below'. Approved after fix.",
+      "tags": ["design", "feedback", "completed"],
+      "impact": { "budget": 15, "timeline": 0, "scope": "completed" }
     },
     {
-      "id": "evt_012",
-      "timestamp": "2024-06-21T11:30:00Z",
+      "id": "ov_figma_02",
+      "timestamp": "2026-06-05T14:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Mentes popup: replaced eye video with static image per client request. Updated component in design system.",
+      "tags": ["design", "popup", "completed"],
+      "impact": { "budget": 15, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "ov_figma_03",
+      "timestamp": "2026-06-12T10:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "medium",
+      "author": "Elena",
+      "content": "Oportunidades carousel: add subtitle 'Inversión de Impacto' and 'Filantropía estratégica' under each slide header.",
+      "tags": ["design", "carousel", "content"],
+      "impact": { "budget": 30, "timeline": 0, "scope": "content-change" }
+    },
+    {
+      "id": "ov_figma_04",
+      "timestamp": "2026-06-18T15:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "high",
+      "author": "Nadiia",
+      "content": "New mockup: ES/EN language switcher in header. Dropdown with flag icons, matches Open Value brand guidelines.",
+      "tags": ["design", "multilingual", "mockup"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "design-ready" }
+    },
+    {
+      "id": "ov_figma_05",
+      "timestamp": "2026-06-22T11:00:00Z",
       "channel": "figma",
       "type": "feedback",
       "severity": "medium",
-      "author": "Client (Sarah)",
-      "content": "Love the currency selector! Can we also show historical exchange rate trends? Would help users make decisions.",
-      "tags": ["feedback", "potential-scope-creep"],
-      "impact": {
-        "budget": 5000,
-        "timeline": 1.5,
-        "scope": "potential-addition",
-        "risk": "high"
-      }
+      "author": "Elena",
+      "content": "Popup-to-slider interaction prototype shared. Client loves side animation. Requested same pattern for Mentes section.",
+      "tags": ["design", "ux", "prototype"],
+      "impact": { "budget": 150, "timeline": 0.5, "scope": "potential-addition" }
     }
   ],
   "budget": {
-    "original": 85000,
-    "approved_changes": 8000,
-    "current_total": 93000,
-    "spent_to_date": 62000,
-    "remaining": 31000,
-    "burn_rate_weekly": 8500
+    "original": 4500,
+    "approved_changes": 600,
+    "current_total": 5100,
+    "spent_to_date": 3200,
+    "remaining": 1900,
+    "burn_rate_weekly": 450
   },
   "timeline": {
-    "original_weeks": 16,
-    "current_estimate": 18,
-    "weeks_elapsed": 10,
-    "weeks_remaining": 8,
+    "original_weeks": 8,
+    "current_estimate": 10,
+    "weeks_elapsed": 8,
+    "weeks_remaining": 2,
     "at_risk": true
   },
   "sprint": {
-    "current_sprint": "Sprint 6",
-    "velocity": 12,
-    "committed_points": 13,
-    "completed_points": 7,
-    "blocked_points": 3,
+    "current_sprint": "Sprint 4",
+    "velocity": 8,
+    "committed_points": 10,
+    "completed_points": 6,
+    "blocked_points": 2,
     "blockers": [
-      "Legal review for payment processor",
-      "API key for exchange rate service"
+      "TranslatePress license verification",
+      "Multilingual strategy decision pending"
     ]
   }
 }

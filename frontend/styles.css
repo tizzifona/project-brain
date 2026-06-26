@@ -77,21 +77,28 @@ body {
 
 .brand {
     display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.35rem;
     text-decoration: none;
 }
 
 .brand-name {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.25rem;
     color: var(--bh-navy);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
+}
+
+.brand-heart {
+    color: var(--bh-pink);
+    font-size: 1.1rem;
+    margin-right: 0.25rem;
 }
 
 .brand-divider {
     color: var(--text-light);
     font-size: 1.125rem;
+    margin-left: 0.25rem;
 }
 
 .brand-product {
@@ -99,6 +106,41 @@ body {
     font-size: 1.05rem;
     color: var(--bh-blue);
     letter-spacing: -0.01em;
+}
+
+.project-context {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-context[hidden],
+#main-nav[hidden] {
+    display: none !important;
+}
+
+.back-btn {
+    padding: 0.5rem 1rem;
+    background: var(--bg);
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--bh-navy);
+    color: white;
+}
+
+.current-project {
+    font-weight: 600;
+    color: var(--bh-navy);
+    font-size: 0.9375rem;
 }
 
 .nav {
@@ -193,6 +235,92 @@ body {
     line-height: 1.7;
 }
 
+/* Projects grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background: var(--surface);
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.project-card-content {
+    flex: 1;
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--bh-navy);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.project-description {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.project-status {
+    padding: 0.35rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.project-status.healthy {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.project-status.warning {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.project-channels {
+    color: var(--text-light);
+    font-size: 0.8125rem;
+}
+
+.project-arrow {
+    font-size: 1.5rem;
+    color: var(--bh-blue);
+    margin-left: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.project-card:hover .project-arrow {
+    transform: translateX(4px);
+}
+
 /* Cards - minimal, clean */
 .card {
     background: var(--surface);
@@ -208,21 +336,6 @@ body {
 
 .card-accent {
     background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
-}
-
-.card-alert {
-    position: relative;
-}
-
-.card-alert::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--bh-orange);
-    border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .card-label {
@@ -502,18 +615,8 @@ body {
 .progress-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--bh-blue), var(--bh-sky));
-    border-radius: var(--radius-pill);
+    border-radius: 0;
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.progress-fill-labeled {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 0.8125rem;
-    font-weight: 600;
 }
 
 /* Buttons */

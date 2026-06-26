@@ -4,17 +4,84 @@ const API_BASE = window.location.hostname === 'localhost'
     : window.location.origin + '/tab/intelligence';
 
 // State
+let currentProject = null;
 let currentView = 'pm';
 let currentFilter = 'all';
 let allSignals = [];
 
+// Project data
+const PROJECTS = {
+    'open-value': {
+        name: 'Open Value Foundation',
+        description: 'Website maintenance and multilingual support'
+    },
+    'gsi': {
+        name: 'Global Social Impact',
+        description: 'Website pages and compliance updates'
+    }
+};
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
+    setProjectShellVisible(false);
+    setupProjectSelection();
     setupNavigation();
     setupFilters();
     setupScenario();
-    loadInitialData();
 });
+
+function setProjectShellVisible(visible) {
+    document.getElementById('main-nav').hidden = !visible;
+    document.getElementById('project-context').hidden = !visible;
+}
+
+// Project selection
+function setupProjectSelection() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.dataset.project;
+            selectProject(projectId);
+        });
+    });
+
+    const backBtn = document.getElementById('back-to-projects');
+    if (backBtn) {
+        backBtn.addEventListener('click', goBackToProjects);
+    }
+
+    const brandLink = document.getElementById('brand-link');
+    if (brandLink) {
+        brandLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            goBackToProjects();
+        });
+    }
+}
+
+function selectProject(projectId) {
+    currentProject = projectId;
+    const project = PROJECTS[projectId];
+
+    // Update UI
+    document.getElementById('projects-view').classList.remove('active');
+    setProjectShellVisible(true);
+    document.getElementById('current-project-name').textContent = project.name;
+
+    // Load PM dashboard by default
+    switchView('pm');
+}
+
+function goBackToProjects() {
+    currentProject = null;
+
+    // Hide all dashboard views
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+    // Show projects view
+    document.getElementById('projects-view').classList.add('active');
+    setProjectShellVisible(false);
+}
 
 // Navigation
 function setupNavigation() {
@@ -35,10 +102,16 @@ function switchView(view) {
         btn.classList.toggle('active', btn.dataset.view === view);
     });
     
-    // Update views
+    // Hide all views including projects
     document.querySelectorAll('.view').forEach(v => {
-        v.classList.toggle('active', v.id === `${view}-view`);
+        v.classList.remove('active');
     });
+    
+    // Show selected view
+    const targetView = document.getElementById(`${view}-view`);
+    if (targetView) {
+        targetView.classList.add('active');
+    }
     
     // Load view data
     loadViewData(view);
@@ -96,7 +169,9 @@ async function postAPI(endpoint, body) {
 
 // Data Loading
 async function loadInitialData() {
-    loadViewData('pm');
+    if (currentProject) {
+        loadViewData('pm');
+    }
 }
 
 async function loadViewData(view) {
@@ -115,9 +190,10 @@ async function loadViewData(view) {
 
 // PM Dashboard
 async function loadPMDashboard() {
+    const projectParam = currentProject ? `?project=${currentProject}` : '';
     const [dashboard, signals] = await Promise.all([
-        fetchAPI('/api/dashboard/pm'),
-        fetchAPI('/api/events')
+        fetchAPI(`/api/dashboard/pm${projectParam}`),
+        fetchAPI(`/api/events${projectParam}`)
     ]);
     
     if (dashboard) {
@@ -253,7 +329,8 @@ function renderSignalFeed(signals) {
 
 // Client Portal
 async function loadClientPortal() {
-    const clientData = await fetchAPI('/api/dashboard/client');
+    const projectParam = currentProject ? `?project=${currentProject}` : '';
+    const clientData = await fetchAPI(`/api/dashboard/client${projectParam}`);
     
     if (clientData) {
         renderClientProgress(clientData.progress);
@@ -273,9 +350,7 @@ function renderClientProgress(progress) {
             <span class="stat-value">${progress.overallCompletion}%</span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill progress-fill-labeled" style="width: ${progress.overallCompletion}%">
-                ${progress.overallCompletion}%
-            </div>
+            <div class="progress-fill" style="width: ${progress.overallCompletion}%"></div>
         </div>
         <div class="stat-row">
             <span class="stat-label">Current Phase</span>
@@ -309,9 +384,7 @@ function renderClientBudget(budget) {
             </span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill progress-fill-labeled" style="width: ${percentUsed}%">
-                ${Math.round(percentUsed)}% used
-            </div>
+            <div class="progress-fill" style="width: ${percentUsed}%"></div>
         </div>
         <div class="stat-row">
             <span class="stat-label">Spent to Date</span>
@@ -350,9 +423,7 @@ function renderClientTimeline(timeline) {
             </div>
         ` : ''}
         <div class="progress-bar">
-            <div class="progress-fill progress-fill-labeled" style="width: ${percentComplete}%">
-                Week ${timeline.elapsed} of ${timeline.currentEstimate}
-            </div>
+            <div class="progress-fill" style="width: ${percentComplete}%"></div>
         </div>
         <div class="stat-row">
             <span class="stat-label">Time Elapsed</span>
@@ -526,7 +597,8 @@ function renderScenarioResults(consequences) {
 
 // Squad View
 async function loadSquadView() {
-    const squadData = await fetchAPI('/api/dashboard/squad');
+    const projectParam = currentProject ? `?project=${currentProject}` : '';
+    const squadData = await fetchAPI(`/api/dashboard/squad${projectParam}`);
     
     if (squadData) {
         renderSquadSprint(squadData.sprint);
@@ -550,9 +622,7 @@ function renderSquadSprint(sprint) {
             <span class="health-badge ${getHealthClass(sprint.health)}">${sprint.health}</span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill progress-fill-labeled" style="width: ${completion}%">
-                ${sprint.completed} of ${sprint.committed} pts
-            </div>
+            <div class="progress-fill" style="width: ${completion}%"></div>
         </div>
         <div class="stat-row">
             <span class="stat-label">Velocity</span>

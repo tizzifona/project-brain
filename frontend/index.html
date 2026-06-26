@@ -14,12 +14,17 @@
     <div id="app">
         <header class="site-header">
             <div class="header-inner">
-                <a class="brand" href="#">
-                    <span class="brand-name">Blue Hope</span>
+                <a class="brand" href="#" id="brand-link">
+                    <span class="brand-name">BLUE HOPE</span>
+                    <span class="brand-heart">♥</span>
                     <span class="brand-divider">/</span>
                     <span class="brand-product">Project Brain</span>
                 </a>
-                <nav class="nav" aria-label="Main views">
+                <div class="project-context" id="project-context" hidden>
+                    <button class="back-btn" id="back-to-projects">← Projects</button>
+                    <span class="current-project" id="current-project-name"></span>
+                </div>
+                <nav class="nav" id="main-nav" aria-label="Main views" hidden>
                     <button class="nav-btn active" data-view="pm">PM Dashboard</button>
                     <button class="nav-btn" data-view="client">Client Portal</button>
                     <button class="nav-btn" data-view="squad">Squad View</button>
@@ -28,7 +33,41 @@
         </header>
 
         <main class="main-content">
-            <div id="pm-view" class="view active">
+            <div id="projects-view" class="view active">
+                <section class="hero">
+                    <p class="eyebrow">Project Brain</p>
+                    <h1>Your projects</h1>
+                    <p class="hero-lead">Select a project to view cross-channel intelligence and AI-powered insights</p>
+                </section>
+
+                <div class="projects-grid">
+                    <button class="project-card" data-project="open-value">
+                        <div class="project-card-content">
+                            <h3>Open Value Foundation</h3>
+                            <p class="project-description">Website maintenance and multilingual support</p>
+                            <div class="project-meta">
+                                <span class="project-status warning">At Risk</span>
+                                <span class="project-channels">Slack, Email, Trello, Notion, Figma, Calls</span>
+                            </div>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </button>
+
+                    <button class="project-card" data-project="gsi">
+                        <div class="project-card-content">
+                            <h3>Global Social Impact</h3>
+                            <p class="project-description">Website pages and compliance updates</p>
+                            <div class="project-meta">
+                                <span class="project-status healthy">On Track</span>
+                                <span class="project-channels">Slack, Email, Trello, Notion, Figma, Calls</span>
+                            </div>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="pm-view" class="view">
                 <section class="hero">
                     <p class="eyebrow">Pilot demo</p>
                     <h1>Cross-channel intelligence</h1>
