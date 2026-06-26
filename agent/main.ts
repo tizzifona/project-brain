@@ -143,7 +143,7 @@ router.get("/health", (ctx) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log("🧠 Project Brain Intelligence Agent starting...");
+console.log("🧠 Project management agent starting...");
 console.log("📊 Data loaded from synthetic dataset");
 console.log("🚀 Agent ready to serve requests");
 
