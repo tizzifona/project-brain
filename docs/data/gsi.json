@@ -1,0 +1,366 @@
+{
+  "project": {
+    "id": "gsi-2026",
+    "name": "Global Social Impact",
+    "startDate": "2026-04-01",
+    "originalBudget": 3500,
+    "originalTimeline": "6 weeks",
+    "client": "Global Social Impact Investments",
+    "squad": ["Leti (PM)", "Nadiia (Developer)", "Isabel (Client)"]
+  },
+  "events": [
+    {
+      "id": "gsi_slack_01",
+      "timestamp": "2026-06-10T09:30:00Z",
+      "channel": "slack",
+      "type": "question",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "Hi team — I'm trying to duplicate a page on staging but the template keeps breaking. Can someone help before my meeting?",
+      "tags": ["help", "page-creation", "template"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "support" }
+    },
+    {
+      "id": "gsi_slack_02",
+      "timestamp": "2026-06-12T22:30:00Z",
+      "channel": "slack",
+      "type": "update",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Environmental Complaints page is live on staging. Link: staging.globalsocialimpact.es/environmental-and-social-complaints — please review.",
+      "tags": ["deployment", "staging", "review"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "in-progress" }
+    },
+    {
+      "id": "gsi_slack_03",
+      "timestamp": "2026-06-13T10:00:00Z",
+      "channel": "slack",
+      "type": "feedback",
+      "severity": "low",
+      "author": "Isabel Albella",
+      "content": "Page looks perfect! Also the duplication plugin is a lifesaver. Thank you Nadiia 🙏",
+      "tags": ["feedback", "positive", "completed"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "acknowledged" }
+    },
+    {
+      "id": "gsi_slack_04",
+      "timestamp": "2026-06-16T15:00:00Z",
+      "channel": "slack",
+      "type": "blocker",
+      "severity": "high",
+      "author": "Isabel Albella",
+      "content": "New team member José María Acín — his profile page is missing the 'hover background' field in the CMS template. Can't set the hover image.",
+      "tags": ["bug", "team-page", "cms"],
+      "impact": { "budget": 60, "timeline": 0.5, "scope": "bug-fix", "risk": "medium" }
+    },
+    {
+      "id": "gsi_slack_05",
+      "timestamp": "2026-06-18T11:00:00Z",
+      "channel": "slack",
+      "type": "update",
+      "severity": "low",
+      "author": "Leti",
+      "content": "Scheduled 15-min Teams sync with Isabel for Monday 9h to walk through page creation basics.",
+      "tags": ["meeting", "training", "coordination"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "coordination" }
+    },
+    {
+      "id": "gsi_email_01",
+      "timestamp": "2026-06-12T09:00:00Z",
+      "channel": "email",
+      "type": "task-request",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "We need a new page: Environmental and Social Complaints Channel. Use existing Complaints page as layout reference. URL: environmental-and-social-complaints.",
+      "tags": ["new-page", "compliance", "request"],
+      "impact": { "budget": 200, "timeline": 0.5, "scope": "new-feature" }
+    },
+    {
+      "id": "gsi_email_02",
+      "timestamp": "2026-06-12T09:10:00Z",
+      "channel": "email",
+      "type": "task-request",
+      "severity": "low",
+      "author": "Isabel Albella",
+      "content": "Footer: add 'Environmental & Social Complaints' link. Rename 'Channel for Complaints' to 'Whistleblowing Channel'.",
+      "tags": ["footer", "links", "rename"],
+      "impact": { "budget": 30, "timeline": 0, "scope": "minor-change" }
+    },
+    {
+      "id": "gsi_email_03",
+      "timestamp": "2026-06-12T22:00:00Z",
+      "channel": "email",
+      "type": "completion",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "All tasks done. Created complaints page from scratch (template was too complex to duplicate). Added stable page duplication plugin. Fixed white gap before header.",
+      "tags": ["completed", "plugin", "bug-fix"],
+      "impact": { "budget": 30, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_email_04",
+      "timestamp": "2026-06-16T14:49:00Z",
+      "channel": "email",
+      "type": "issue",
+      "severity": "high",
+      "author": "Isabel Albella",
+      "content": "Problem with team page: new member José María Acín — 'hover background' custom field missing from template in WordPress backend.",
+      "tags": ["issue", "team-page", "template"],
+      "impact": { "budget": 60, "timeline": 0.5, "scope": "bug-fix", "risk": "medium" }
+    },
+    {
+      "id": "gsi_email_05",
+      "timestamp": "2026-06-10T10:00:00Z",
+      "channel": "email",
+      "type": "help-request",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "I'm having lots of trouble creating a new page. Could we meet to go over a few simple things I should know how to do myself?",
+      "tags": ["help", "training", "meeting"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "support" }
+    },
+    {
+      "id": "gsi_voice_01",
+      "timestamp": "2026-06-12T13:00:00Z",
+      "channel": "voice",
+      "type": "meeting",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "15-min Teams call: Isabel had quick questions about footer links and PDF protocol button. Resolved on the call.",
+      "tags": ["meeting", "resolved", "footer"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "coordination" }
+    },
+    {
+      "id": "gsi_voice_02",
+      "timestamp": "2026-06-14T09:30:00Z",
+      "channel": "voice",
+      "type": "meeting",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "Training session with Isabel: walked through page creation, Elementor basics, and when to use the duplication plugin.",
+      "tags": ["training", "client-enablement"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "support" }
+    },
+    {
+      "id": "gsi_voice_03",
+      "timestamp": "2026-06-16T10:00:00Z",
+      "channel": "voice",
+      "type": "decision",
+      "severity": "high",
+      "author": "Isabel Albella",
+      "content": "Call about team page bug: agreed Nadiia will restore hover background field in ACF template. ETA: 2 days.",
+      "tags": ["bug", "team-page", "decision"],
+      "impact": { "budget": 60, "timeline": 0.5, "scope": "bug-fix" }
+    },
+    {
+      "id": "gsi_voice_04",
+      "timestamp": "2026-06-18T09:00:00Z",
+      "channel": "voice",
+      "type": "meeting",
+      "severity": "low",
+      "author": "Leti",
+      "content": "Quick sync: reviewed compliance footer links with Isabel. Whistleblowing vs Environmental Complaints naming confirmed.",
+      "tags": ["compliance", "footer", "naming"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "confirmed" }
+    },
+    {
+      "id": "gsi_voice_05",
+      "timestamp": "2026-06-20T11:00:00Z",
+      "channel": "voice",
+      "type": "update",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Follow-up call: hover background field restored. Isabel tested José María's profile — working correctly now.",
+      "tags": ["resolved", "team-page", "completed"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_trello_01",
+      "timestamp": "2026-06-12T08:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "Create Environmental and Social Complaints page — layout from existing Complaints page — Done",
+      "tags": ["task", "development", "completed"],
+      "impact": { "budget": 200, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_trello_02",
+      "timestamp": "2026-06-12T08:30:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Footer: rename Whistleblowing Channel + add Environmental & Social Complaints link — Done",
+      "tags": ["task", "maintenance", "completed"],
+      "impact": { "budget": 30, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_trello_03",
+      "timestamp": "2026-06-12T21:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "Fix white gap before header on affected pages — plugin update side effect — Done",
+      "tags": ["task", "bug-fix", "completed"],
+      "impact": { "budget": 30, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_trello_04",
+      "timestamp": "2026-06-13T09:00:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Install and configure page duplication plugin (Duplicate Post) — Done",
+      "tags": ["task", "plugin", "completed"],
+      "impact": { "budget": 20, "timeline": 0, "scope": "completed" }
+    },
+    {
+      "id": "gsi_trello_05",
+      "timestamp": "2026-06-16T15:30:00Z",
+      "channel": "trello",
+      "type": "task",
+      "severity": "high",
+      "author": "Nadiia",
+      "content": "Restore 'hover background' ACF field on team member template for José María Acín profile — In Progress",
+      "tags": ["task", "bug-fix", "in-progress"],
+      "impact": { "budget": 60, "timeline": 0.5, "scope": "in-progress", "risk": "medium" }
+    },
+    {
+      "id": "gsi_notion_01",
+      "timestamp": "2026-06-12T08:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "Environmental Complaints page copy doc: title, body text, button label 'View Protocol', PDF link TBD pending legal review.",
+      "tags": ["documentation", "content", "compliance"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
+    },
+    {
+      "id": "gsi_notion_02",
+      "timestamp": "2026-06-12T08:15:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "low",
+      "author": "Leti",
+      "content": "Footer compliance links spec: Whistleblowing Channel (existing) + Environmental & Social Complaints (new). Legal approved naming.",
+      "tags": ["documentation", "footer", "compliance"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
+    },
+    {
+      "id": "gsi_notion_03",
+      "timestamp": "2026-06-16T16:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "high",
+      "author": "Nadiia",
+      "content": "Team page CMS fields doc updated: hover background field missing after template migration. Fix in progress.",
+      "tags": ["documentation", "bug", "cms"],
+      "impact": { "budget": 0, "timeline": 0.5, "scope": "documented", "risk": "medium" }
+    },
+    {
+      "id": "gsi_notion_04",
+      "timestamp": "2026-06-14T10:00:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "Client training notes for Isabel: page creation checklist, when to use duplication plugin, Elementor template limitations.",
+      "tags": ["documentation", "training"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
+    },
+    {
+      "id": "gsi_notion_05",
+      "timestamp": "2026-06-12T22:10:00Z",
+      "channel": "notion",
+      "type": "documentation",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Plugin update changelog: white gap bug caused by Elementor 3.24 update. Fixed via custom CSS override.",
+      "tags": ["documentation", "changelog", "resolved"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "documented" }
+    },
+    {
+      "id": "gsi_figma_01",
+      "timestamp": "2026-06-11T14:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "low",
+      "author": "Isabel Albella",
+      "content": "Reference frame: existing Channel for Complaints page layout. Use same structure for Environmental Complaints page.",
+      "tags": ["design", "reference", "layout"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "design-reference" }
+    },
+    {
+      "id": "gsi_figma_02",
+      "timestamp": "2026-06-12T11:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "medium",
+      "author": "Nadiia",
+      "content": "Footer mockup updated: two compliance links in right column. Whistleblowing + Environmental & Social Complaints.",
+      "tags": ["design", "footer", "mockup"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "design-ready" }
+    },
+    {
+      "id": "gsi_figma_03",
+      "timestamp": "2026-06-16T15:30:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "medium",
+      "author": "Isabel Albella",
+      "content": "Team page: hover state should show alternate photo on mouseover. José María's page missing this — see screenshot attached.",
+      "tags": ["design", "team-page", "hover"],
+      "impact": { "budget": 60, "timeline": 0.5, "scope": "bug-report" }
+    },
+    {
+      "id": "gsi_figma_04",
+      "timestamp": "2026-06-08T10:00:00Z",
+      "channel": "figma",
+      "type": "feedback",
+      "severity": "low",
+      "author": "Isabel Albella",
+      "content": "GSI branding consistency check passed on team page update. Typography and spacing match design system.",
+      "tags": ["design", "branding", "approved"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "approved" }
+    },
+    {
+      "id": "gsi_figma_05",
+      "timestamp": "2026-06-19T14:00:00Z",
+      "channel": "figma",
+      "type": "comment",
+      "severity": "low",
+      "author": "Nadiia",
+      "content": "Mobile team page layout review: hover interaction replaced with tap-to-reveal on mobile. Approved by Isabel.",
+      "tags": ["design", "mobile", "responsive"],
+      "impact": { "budget": 0, "timeline": 0, "scope": "completed" }
+    }
+  ],
+  "budget": {
+    "original": 3500,
+    "approved_changes": 320,
+    "current_total": 3820,
+    "spent_to_date": 3100,
+    "remaining": 720,
+    "burn_rate_weekly": 380
+  },
+  "timeline": {
+    "original_weeks": 6,
+    "current_estimate": 6,
+    "weeks_elapsed": 5,
+    "weeks_remaining": 1,
+    "at_risk": false
+  },
+  "sprint": {
+    "current_sprint": "Sprint 3",
+    "velocity": 10,
+    "committed_points": 8,
+    "completed_points": 7,
+    "blocked_points": 0,
+    "blockers": []
+  }
+}

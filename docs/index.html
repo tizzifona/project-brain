@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Brain — Blue Hope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="brand" href="#" id="brand-link">
+                    <span class="brand-name">BLUE HOPE</span>
+                    <span class="brand-heart">♥</span>
+                    <span class="brand-divider">/</span>
+                    <span class="brand-product">Project Brain</span>
+                </a>
+                <div class="project-context" id="project-context" hidden>
+                    <button class="back-btn" id="back-to-projects">← Projects</button>
+                    <span class="current-project" id="current-project-name"></span>
+                </div>
+                <nav class="nav" id="main-nav" aria-label="Main views" hidden>
+                    <button class="nav-btn active" data-view="pm">PM Dashboard</button>
+                    <button class="nav-btn" data-view="client">Client Portal</button>
+                    <button class="nav-btn" data-view="squad">Squad View</button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div id="projects-view" class="view active">
+                <section class="hero">
+                    <p class="eyebrow">Project Brain</p>
+                    <h1>Your projects</h1>
+                    <p class="hero-lead">Select a project to view cross-channel intelligence and AI-powered insights</p>
+                </section>
+
+                <div class="projects-grid">
+                    <button class="project-card" data-project="open-value">
+                        <div class="project-card-content">
+                            <h3>Open Value Foundation</h3>
+                            <p class="project-description">Website maintenance and multilingual support</p>
+                            <div class="project-meta">
+                                <span class="project-status warning">At Risk</span>
+                                <span class="project-channels">Slack, Email, Trello, Notion, Figma, Calls</span>
+                            </div>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </button>
+
+                    <button class="project-card" data-project="gsi">
+                        <div class="project-card-content">
+                            <h3>Global Social Impact</h3>
+                            <p class="project-description">Website pages and compliance updates</p>
+                            <div class="project-meta">
+                                <span class="project-status healthy">On Track</span>
+                                <span class="project-channels">Slack, Email, Trello, Notion, Figma, Calls</span>
+                            </div>
+                        </div>
+                        <span class="project-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="pm-view" class="view">
+                <section class="hero">
+                    <p class="eyebrow">Pilot demo</p>
+                    <h1>Cross-channel intelligence</h1>
+                    <p class="hero-lead">Every signal from Slack, email, calls, Notion, Trello and Figma—synthesised into one live picture with AI interpretation</p>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="card card-accent">
+                        <span class="card-label">Overview</span>
+                        <h3>Project health</h3>
+                        <div id="pm-overview">Loading...</div>
+                    </div>
+
+                    <div class="card card-alert">
+                        <span class="card-label">Priority</span>
+                        <h3>Critical signals</h3>
+                        <div id="critical-signals">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Channels</span>
+                        <h3>Activity</h3>
+                        <div id="channel-breakdown">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">AI insights</span>
+                        <h3>Recommendations</h3>
+                        <div id="recommendations">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="card signal-feed">
+                    <div class="feed-header">
+                        <div>
+                            <span class="card-label">Live feed</span>
+                            <h3>All signals</h3>
+                        </div>
+                        <div class="feed-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="slack">Slack</button>
+                            <button class="filter-btn" data-filter="email">Email</button>
+                            <button class="filter-btn" data-filter="voice">Calls</button>
+                            <button class="filter-btn" data-filter="notion">Notion</button>
+                            <button class="filter-btn" data-filter="trello">Trello</button>
+                            <button class="filter-btn" data-filter="figma">Figma</button>
+                        </div>
+                    </div>
+                    <div id="signal-feed" class="feed-content">Loading...</div>
+                </div>
+            </div>
+
+            <div id="client-view" class="view">
+                <section class="hero">
+                    <p class="eyebrow">Client view</p>
+                    <h1>Clear picture, smart decisions</h1>
+                    <p class="hero-lead">See progress, budget and timeline—without internal noise. Understand the impact of any decision before confirming it</p>
+                </section>
+
+                <div class="client-grid">
+                    <div class="card">
+                        <span class="card-label">Delivery</span>
+                        <h3>Progress</h3>
+                        <div id="client-progress">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Finance</span>
+                        <h3>Budget</h3>
+                        <div id="client-budget">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Schedule</span>
+                        <h3>Timeline</h3>
+                        <div id="client-timeline">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Recent</span>
+                        <h3>Decisions</h3>
+                        <div id="client-decisions">Loading...</div>
+                    </div>
+
+                    <div class="card card-alert">
+                        <span class="card-label">Action needed</span>
+                        <h3>Pending</h3>
+                        <div id="pending-decisions">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Risk</span>
+                        <h3>Mitigation</h3>
+                        <div id="client-risks">Loading...</div>
+                    </div>
+                </div>
+
+                <div class="card scenario-demo">
+                    <div class="scenario-intro">
+                        <div>
+                            <span class="card-label">Demo</span>
+                            <h3>Decision impact preview</h3>
+                            <p class="demo-description">See how a scope change ripples through budget, timeline and capacity—before confirming</p>
+                        </div>
+                        <button id="run-scenario" class="btn-primary">Run scenario</button>
+                    </div>
+                    <div id="scenario-results" class="scenario-content" hidden>Loading...</div>
+                </div>
+            </div>
+
+            <div id="squad-view" class="view">
+                <section class="hero">
+                    <p class="eyebrow">Squad view</p>
+                    <h1>Sprint health & context</h1>
+                    <p class="hero-lead">Blockers, velocity and important updates from channels the team isn't part of</p>
+                </section>
+
+                <div class="squad-grid">
+                    <div class="card card-accent">
+                        <span class="card-label">Sprint</span>
+                        <h3>Current sprint</h3>
+                        <div id="squad-sprint">Loading...</div>
+                    </div>
+
+                    <div class="card card-alert">
+                        <span class="card-label">Blockers</span>
+                        <h3>Impediments</h3>
+                        <div id="squad-blockers">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Context</span>
+                        <h3>Other channels</h3>
+                        <p class="card-subtitle">Important updates from calls and email</p>
+                        <div id="squad-context">Loading...</div>
+                    </div>
+
+                    <div class="card">
+                        <span class="card-label">Backlog</span>
+                        <h3>Upcoming</h3>
+                        <div id="squad-upcoming">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 Blue Hope · Project Brain pilot · Built with Web Daemon</p>
+        </footer>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
